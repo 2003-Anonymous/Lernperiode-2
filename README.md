@@ -8,3 +8,10 @@ Ich möchte einen Taschenrechner erstellen, mit dem man beliebige Zahlen beliebi
 
 - [ ] Die Grundfunktion erstellen (Addition, Subtraktion, Division, Multiplikation).
 - [ ] Mit der letzten Zahl weiterrechnen können.
+
+##01.10
+
+- [ ] Fertig programmieren, dass man mit dem letzten Resultat weiterrechnen kann.
+- [ ] Wurzeln und Quadrieren programmieren
+- [ ] Resultate speichern können
+- [ ] Weitere Operatoren
