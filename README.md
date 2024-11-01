@@ -9,9 +9,18 @@ Ich möchte einen Taschenrechner erstellen, mit dem man beliebige Zahlen beliebi
 - [ ] Die Grundfunktion erstellen (Addition, Subtraktion, Division, Multiplikation).
 - [ ] Mit der letzten Zahl weiterrechnen können.
 
-## 01.10
+## 01.11
 
-- [ ] Fertig programmieren, dass man mit dem letzten Resultat weiterrechnen kann.
-- [ ] Wurzeln und Quadrieren programmieren
+- [x] Fertig programmieren, dass man mit dem letzten Resultat weiterrechnen kann.
+- [x] Wurzeln und Quadrieren programmieren
 - [ ] Resultate speichern können
-- [ ] Weitere Operatoren
+- [x] Weitere Operatoren
+
+Heute habe ich vertig programmiert, dass man mit dem vorherigen Resultat weiterrechnen kann. Ich habe auch hinzugefügt, dass man die n-te Wurzel und Potenz rechnen kann. Zum schluss habe ich noch die Mitternachtsformel programmiert. Diese funktioniert auch, ausser das Resultat beinhaltet imaginäte Zahlen.
+
+## 08.11
+
+- [ ] Mich über komplexe Zahlen in C# informieren und diese evtl. zu meiner Mitternachtsformel hinzufügen
+- [ ] Weitere Rechnungsoperatoren wie sinus und cosinus
+- [ ] Zahlen speichern und wieder aufrufen
+- [ ] Schöner Gestalten
