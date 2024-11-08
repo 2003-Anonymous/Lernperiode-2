@@ -9,44 +9,53 @@ namespace Taschenrechner
             double zahl1;
             double zahl2;
             double result = 0;
-            double result2 = 0;
-            string op = "";
-            bool end = true;
-            bool y = true;
-            bool a = true;
-            bool wiederholen = true;
+            double x2 = 0;
+            string op;
+            bool calculate = true;        
 
             Console.WriteLine("Taschenrechner");
 
-            while (end)
+            while (calculate)
             {
-                y = true;
+                 bool middle = true;
 
                 try
                 {
                     Console.Write("Gib eine Zahl ein: ");
                     zahl1 = Convert.ToDouble(Console.ReadLine());
 
-                    while (y)
+                    while (middle)
                     {
 
                         Console.Write("Gib den Operator ein: ");
                         op = Console.ReadLine();
 
+                        string[] opArray = { "+", "-", "*", "/", "p", "w" };
+
+                        if (!opArray.Contains(op))
+                        {
+                            Console.WriteLine("Fehlerhafte Eingabe");
+                        }
+                        break;
                         Console.Write("Gib eine zweite Zahlt ein: ");
                         zahl2 = Convert.ToDouble(Console.ReadLine());
 
                         
                         if(zahl1 == 7)
                         {
-                            mitternachtsFormel(result, result2);                            
+                            double[] nightresult;
+
+                            nightresult = mitternachtsFormel(result, x2);
+                            Console.WriteLine($"x1 = {nightresult[0]}");
+                            Console.WriteLine($"x2 = {nightresult[1]}");
+                            
                         }
                         else
                         {
-                            result = berechneOperation(zahl1, zahl2, result, result2, op);
+                            result = berechneOperation(zahl1, zahl2, op);
                             Console.WriteLine(result);
                         }
-
+                        bool conCalc;
                         do
                         {
                             Console.Write("Mit Ergebnis weiterrechnen? [y/n]: ");
@@ -54,22 +63,22 @@ namespace Taschenrechner
 
                             if (antwort == "y")
                             {
-                                y = true;
-                                a = false;
+                                middle = true;
+                                conCalc = false;
                                 zahl1 = result;
                             }
                             else if (antwort == "n")
                             {
-                                a = false;
-                                y = false;
+                                conCalc = false;
+                                middle = false;
                             }
                             else
                             {
                                 Console.WriteLine("Ungültige Eingabe");
-                                a = true;
+                                conCalc = true;
                             }
                         }
-                        while (a);
+                        while (conCalc);
 
                     }
                 }
@@ -82,8 +91,9 @@ namespace Taschenrechner
         }
 
 
-        static double berechneOperation(double zahl1, double zahl2, double result, double result2, string op)
+        static double berechneOperation(double zahl1, double zahl2, string op)
         {
+            double result = 0;
 
             if (op == "+")
             {
@@ -127,7 +137,7 @@ namespace Taschenrechner
                 return 0;
             }
         }
-        static void mitternachtsFormel(double result, double result2)
+        static double[] mitternachtsFormel(double x1, double x2)
         {
             double a = 0;
             double b = 0;
@@ -143,13 +153,15 @@ namespace Taschenrechner
             Console.Write("c = ");
             c = Convert.ToDouble(Console.ReadLine());
 
-            result = (-b + (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c))) / (2 * a);
+            x1 = (-b + (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c))) / (2 * a);
 
-            result2 = (-b - (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c))) / (2 * a);
+            x2 = (-b - (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c))) / (2 * a);
 
-            double[] resultArray = { result, result2 };
+            double[] resultArray = { x1, x2 };
 
-            showArray(resultArray);
+            //showArray(resultArray);
+
+            return resultArray;
         }
 
         static void showArray(double[] resultArray)
