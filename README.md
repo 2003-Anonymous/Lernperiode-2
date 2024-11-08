@@ -23,4 +23,4 @@ Heute habe ich vertig programmiert, dass man mit dem vorherigen Resultat weiterr
 - [ ] Mich über komplexe Zahlen in C# informieren und diese evtl. zu meiner Mitternachtsformel hinzufügen
 - [ ] Weitere Rechnungsoperatoren wie sinus und cosinus
 - [ ] Zahlen speichern und wieder aufrufen
-- [ ] Schöner Gestalten
+- [ ] Mich über WinForms informieren und ein kleines Programm machen
