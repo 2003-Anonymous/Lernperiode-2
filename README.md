@@ -33,3 +33,12 @@ Heute habe ich mich ein wenig über komplexe Zahlen informiert. In C# diese umzu
 - [ ] Weitere Rechenwege hinzufügen (z.B. von r und h zu v)
 - [ ] einen einfacheren Weg für imaginäre Zahlen finden
 - [ ] Weiter mit WinForms üben und evtl. ein GUI für den Taschenrechner beginnen.
+
+Heute habe ich die Annäherung an PI programmiert. Dies dauert aber eine Zeit, bis es schon nur die ersten 5 Ziffern berrechnet hat. Diese Zahlt speichert es in einem Textdokument. Dass das programm am selben punkt weitermacht, wie es aufgehört hat habe ich aber nicht hinbekommen. Dann habe ich noch angefangen die berrechnung eines Zylinters zu programmieren. Dort sollte man den Ziel-Wert eingeben und dann steht welche Werte für diese Berrechnung erforderlich sind wie zum Beispiel die Höhe oder der Radius.
+
+## 22.11
+
+- [ ] Die Switchcases für die Zylinderberrechnung fertigstellen
+- [ ] Funktionen für die Berrechnung in den Switchcases erstellen
+- [ ] Berrechnung von Kreissektoren hinzufügen
+- [ ] Noch andere Formen wie z.B. eine Kugel hinzufügen
