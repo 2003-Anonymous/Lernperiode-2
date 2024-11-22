@@ -38,7 +38,32 @@ Heute habe ich die Annäherung an PI programmiert. Dies dauert aber eine Zeit, b
 
 ## 22.11
 
-- [ ] Die Switchcases für die Zylinderberrechnung fertigstellen
-- [ ] Funktionen für die Berrechnung in den Switchcases erstellen
-- [ ] Berrechnung von Kreissektoren hinzufügen
+- [x] Die Switchcases für die Zylinderberrechnung fertigstellen
+- [x] Funktionen für die Berrechnung in den Switchcases erstellen
+- [x] Berrechnung von Kreissektoren hinzufügen
 - [ ] Noch andere Formen wie z.B. eine Kugel hinzufügen
+
+Heute habe ich die Berrechnung für den Zylinder und den Kreis fertig gestellt. Ich musste ein wenig umplanen, da mir aufgefallen ist, dass so wie ich es vorhatte nicht funktioniert. Jetzt funktioniert es aber trotzdem einfach ein wenig eingeschränkter. 
+
+## 29.11
+
+- [ ] Den Code sicherer machen, damit das programm nicht abstürzen kann
+- [ ] Den Code für den Zylinder in den Taschenrechner einauen.
+- [ ] Verschiedenste Daten vom rechnen speichern können
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
