@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -10,144 +11,184 @@ namespace Test
 
         static void Main(string[] args)
         {
-            int r;
-            int d;
-            int v;
-            int h;
-            int u;
-            int f;
-            int o;
-
             double wert1 = 0;
-            double wert2 = 0;
-            double wert3 = 0;
-            string eingabe1;
-            string eingabe2;
+            double wert2 = 0;            
             string eingabeResult;
-            int result;
+            double result = 0;
+            bool enterResult = false;          
 
-
-            Console.WriteLine("Welchen Wert willst du errechnen? ");
-            eingabeResult = Console.ReadLine();            
-
-            switch (eingabeResult)
+            do
             {
-                case "r":
-                    
-                    break;
-                case "d":
+                Console.WriteLine("Welchen Wert willst du errechnen? ");
+                eingabeResult = Console.ReadLine();
 
-                    break;
-                case "v":
-                    Console.WriteLine("Erforderlicher Wert: h\nMögliche Werte: U,d,r,A");
-                    Console.Write("Mit welchem Wert willst du rechnen?: ");
-                    eingabe1 = Console.ReadLine();
-                    eingabe2 = "h";
+                switch (eingabeResult)
+                {
+                    case "r":
+                        ResultR(wert1, wert2, result);
+                        break;
+                    case "d":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
 
-                    Wert1(eingabe1,eingabe2,wert1,wert2);
+                        result = Math.Round(wert1 * 2, 2);
+                        Console.WriteLine($"d = {result}");
+                        break;
+                    case "v":
+                        Console.Write($"h = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
 
-                    break;
-                case "h":
+                        Console.Write($"r = ");
+                        wert2 = Convert.ToDouble(Console.ReadLine());
 
-                    break;
-                case "A":
+                        result = Math.Round((Math.PI * Math.Pow(wert1, 2)) * wert2, 2);
+                        Console.WriteLine($"v = {result}");
 
-                    break;
-                case "U":
+                        break;
+                    case "h":
+                        Console.Write($"v = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
 
-                    break;
+                        Console.Write($"r = ");
+                        wert2 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round(wert1 / (Math.PI * Math.Pow(wert2, 2)), 2);
+                        Console.WriteLine($"h = {result}");
+                        break;
+                    case "A":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round(Math.PI * Math.Pow(wert1, 2), 2);
+                        Console.WriteLine($"A = {result}");
+                        break;
+                    case "U":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round(2 * Math.PI * wert1, 2);
+                        Console.WriteLine($"A = {result}");
+                        break;
+                    case "VK":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round((4/3) * Math.PI * Math.Pow(wert1,3), 2);
+                        Console.WriteLine($"VK = {result}");
+                        break;
+                    case "b":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
+
+                        Console.Write("Winkel = ");
+                        wert2 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round(2*Math.PI*wert1*(wert2/360), 2);
+                        Console.WriteLine($"b = {result}");
+                        break;
+                    case "As":
+                        Console.Write($"r = ");
+                        wert1 = Convert.ToDouble(Console.ReadLine());
+
+                        Console.Write("Winkel = ");
+                        wert2 = Convert.ToDouble(Console.ReadLine());
+
+                        result = Math.Round(Math.PI* Math.Pow(wert1,2)*(wert2/360), 2);
+                        Console.WriteLine($"A = {result}");
+                        break;
+                    default:
+                        Console.WriteLine("Ungültige Eigabe!");
+                        enterResult = true;
+                        break;
+                }
+            } while (enterResult);
+            static void ResultR(double wert1, double wert2, double result)
+            {
+                bool enterR = false;
+                do
+                {
+                    string eingabeR;
+
+                    Console.WriteLine("Aus welcher Variable willst du r berrechnen?");
+                    eingabeR = Console.ReadLine();
+
+                    switch (eingabeR)
+                    {
+                        case "d":
+                            Console.Write("d = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(wert1 / 2, 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "v":
+                            Console.Write($"h = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            Console.Write($"v = ");
+                            wert2 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Sqrt(wert2 / wert1 * Math.PI), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "h":
+                            Console.Write($"h = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            Console.Write($"v = ");
+                            wert2 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Sqrt(wert2 / (wert1 * Math.PI)), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "A":
+                            Console.Write($"A = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Sqrt(wert1 / Math.PI), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "U":
+                            Console.Write($"U = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Sqrt(wert1 / (2 * Math.PI)), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "VK":
+                            Console.Write($"VK = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Pow((3 * wert1)/4 * Math.PI,1/3), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "b":
+                            Console.Write($"b = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            Console.Write("Winkel = ");
+                            wert2 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(wert1 / (wert2/360) / (2*Math.PI), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        case "AS":
+                            Console.Write($"As = ");
+                            wert1 = Convert.ToDouble(Console.ReadLine());
+
+                            Console.Write("Winkel = ");
+                            wert2 = Convert.ToDouble(Console.ReadLine());
+
+                            result = Math.Round(Math.Sqrt(wert1 /(wert2/360) / Math.PI), 2);
+                            Console.WriteLine($"r = {result}");
+                            break;
+                        default:
+                            Console.WriteLine("Ungültige Eingabe!");
+                            enterR = true;
+                            break;
+                    }
+                } while (enterR);
             }
-
-        
-        }
-        static void Wert1(string eingabe1, string eingabe2, double wert1, double wert2 )
-        {
-            switch (eingabe1)
-            {
-                case "r":
-                    Console.Write("r = ");
-                    wert1 = Convert.ToInt32(Console.ReadLine());
-                    break;
-                case "d":
-
-                    break;
-                case "v":
-
-                    break;
-                case "h":
-
-                    break;
-                case "U":
-
-                    break;
-                case "A":
-
-                    break;
-               
-
-            }            
-        }
-        static double Result(int result, int wert1, int wert2)
-        {
-            Console.Write($"{wert1} = ");
-            wert1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write($"{wert2} = ");
-            wert2 = Convert.ToInt32(Console.ReadLine());
-
-            switch (result)
-            {
-                case 'r':
-
-                    break;
-                case 'd':
-
-                    break;
-                case 'v':
-
-                    break;
-                case 'h':
-
-                    break;
-                case 'U':
-
-                    break;
-                case 'A':
-
-                    break;
-                
-
-            }
-            return result;
-        }
-        static void Wert2(int wert1, string eingabe2)
-        {
-            switch (wert1)
-            {
-                case 'r':
-
-                    break;
-                case 'd':
-
-                    break;
-                case 'v':
-
-                    break;
-                case 'h':
-
-                    break;
-                case 'U':
-
-                    break;
-                case 'A':
-
-                    break;
-
-
-            }
-        }
-    }
+        }        
+    }    
 }
-
-
-
