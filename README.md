@@ -47,9 +47,15 @@ Heute habe ich die Berrechnung für den Zylinder und den Kreis fertig gestellt. 
 
 ## 29.11
 
-- [ ] Den Code sicherer machen, damit das programm nicht abstürzen kann
-- [ ] Den Code für den Zylinder in den Taschenrechner einauen.
-- [ ] Verschiedenste Daten vom rechnen speichern können
+- [x] Den Code sicherer machen, damit das programm nicht abstürzen kann
+- [x] Den Code für den Zylinder in den Taschenrechner einauen.
+- [x] Verschiedenste Daten vom rechnen speichern können
+
+Heute habe ich die Berrechnung des Zylinders in den Taschenrecher eingebaut. Dazu habe ich mal Klassen und Objekte verwendet, um das auch mal zu üben. Ausserdem habe ich die Struktur des Taschenrechners verändert. Jetzt kann man am Anfang eingeben, ob man den Taschenrechner, die Mitternachtsformel, Annäherung von PI oder die Berrechnung des Zylinders. Dazu habe ich noch ein paar Schleifen angepasst, dass es bei falscher Eingabe den richtigen Teil wiederholt. Ich habe auch noch programmiert, dass man Resultate speichern kann und wenn man s drückt, wird die gespeicherte Zahl eingefügt. Zum Schluss habe ich noch mit Console.Clear den Umgang mit dem Rechner Angenehmer gemacht.
+
+- [ ] Die Restlichen Schleifen auf Fehler kontrollieren
+- [ ] Bei allen Funktionen noch Console.Clear hinzufügen
+- [ ] Bei der Einsetzung der gespeicherten Zahl verbessern, dass auch die erste Zahl angezeigt wird.
 
 
 
