@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.IO;
+using System.Reflection;
 
 namespace Taschenrechner
 {
@@ -7,105 +8,53 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            double zahl1;
-            double zahl2;
+            double zahl1 = 0;
+            double zahl2 = 0;
             double result = 0;
             double x2 = 0;
-            string op;
-            bool calculate = true;        
-
-            Console.WriteLine("Taschenrechner");
+            string op = "";
+            bool calculate = true;           
 
             while (calculate)
             {
-                 bool middle = true;
+                
 
-                try
+                Console.Write("Wie willst du rechnen? \n(Taschenrechner[T], Grössen[G], Pi[P], Mitternachtsformel[M]: ");
+                string firstDecision = Console.ReadLine();
+
+                Console.Clear();
+
+                if(firstDecision == "T")
                 {
-                    Console.Write("Gib eine Zahl ein: ");
-                    zahl1 = Convert.ToDouble(Console.ReadLine());
-                    
-                    while (middle)
+                    result = Calculator(zahl1, zahl2, result, op);
+                }
+                else if(firstDecision == "G")
+                {
+                    Zylinder zylinderresult = new Zylinder();
+                    zylinderresult.ZylinderOperation();
+                }
+                else if(firstDecision == "P")
+                {
+                    result = AnnäherungPi(zahl1);
+                    Console.WriteLine(result);
+                    if (Console.ReadKey().Key == ConsoleKey.Enter)
                     {
-
-                        Console.Write("Gib den Operator ein: ");
-                        op = Console.ReadLine();
-
-                        string[] opArray = { "+", "-", "*", "/", "p", "w", "Pi" };
-
-                        while (true)
-                        {
-                            if (!opArray.Contains(op))
-                            {
-                                Console.WriteLine("Fehlerhafte Eingabe");
-                            }
-                            break;
-                        }
-
-                        if(op == "Grössen")
-                        {
-
-                        }
-
-                        Console.Write("Gib eine zweite Zahlt ein: ");
-                        zahl2 = Convert.ToDouble(Console.ReadLine());
-                        
-                        
-                        if(zahl1 == 7)
-                        {
-                            double[] nightresult;
-
-                            nightresult = mitternachtsFormel(result, x2);
-                            Console.WriteLine($"x1 = {nightresult[0]}");
-                            Console.WriteLine($"x2 = {nightresult[1]}");
-                            
-                        }else if(op == "Pi")
-                        {
-                            result = annäherungPi(zahl1);
-                            Console.WriteLine(result);
-                        }
-                        else
-                        {
-                            result = berechneOperation(zahl1, zahl2, op);
-                            Console.WriteLine(result);
-                        }
-                        bool conCalc;
-                        do
-                        {
-                            Console.Write("Mit Ergebnis weiterrechnen? [y/n]: ");
-                            string antwort = Console.ReadLine();
-
-                            if (antwort == "y")
-                            {
-                                middle = true;
-                                conCalc = false;
-                                zahl1 = result;
-                            }
-                            else if (antwort == "n")
-                            {
-                                conCalc = false;
-                                middle = false;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Ungültige Eingabe");
-                                conCalc = true;
-                            }
-                        }
-                        while (conCalc);
-
+                        Console.Clear();
                     }
                 }
-                catch (Exception ex)
+                else if(firstDecision == "M")
                 {
-                    Console.WriteLine("Fehlerhafte Eingabe!");
-                    Console.WriteLine(ex.ToString());
+                    double[] nightresult;
+
+                    nightresult = MitternachtsFormel(result, x2);
+                    Console.WriteLine($"x1 = {nightresult[0]}");
+                    Console.WriteLine($"x2 = {nightresult[1]}");
                 }
             }
         }
 
 
-        static double berechneOperation(double zahl1, double zahl2, string op)
+        static double BerechneOperation(double zahl1, double zahl2, string op)
         {
             double result = 0;
 
@@ -151,7 +100,7 @@ namespace Taschenrechner
                 return 0;
             }
         }
-        static double[] mitternachtsFormel(double x1, double x2)
+        static double[] MitternachtsFormel(double x1, double x2)
         {
             double a = 0;
             double b = 0;
@@ -178,14 +127,8 @@ namespace Taschenrechner
             return resultArray;
         }
 
-        static void showArray(double[] resultArray)
-        {
-            for(int i = 0; i < resultArray.Length; i++)
-            {
-                Console.WriteLine($"X{i} = {resultArray[i]}");                
-            }
-        }
-        static double annäherungPi(double resultPi)
+        
+        static double AnnäherungPi(double resultPi)
         {
             int vorzeichen = 1;
             double Pi = 0;
@@ -214,6 +157,8 @@ namespace Taschenrechner
 
                 Console.WriteLine(Pi);
 
+               
+
                 bool writing = false;
                 int count = 0;
 
@@ -233,9 +178,112 @@ namespace Taschenrechner
                 }
             }
             resultPi = Pi;
+            
             return resultPi;
+            
 
-        
+        }
+
+        static double Calculator(double zahl1, double zahl2, double result, string op)
+        {
+            string path = @"C:\Users\joshu\source\repos\LA_Lernperiode-2\Taschenrechner\Number_Save.txt";
+            while (true)
+            {
+                bool middle = true;
+                try
+                {
+                    Console.Write("Gib eine Zahl ein: ");
+
+                    
+
+                    if (Console.ReadKey(intercept: true).Key == ConsoleKey.S)
+                    {
+                        zahl1 = Convert.ToDouble(File.ReadAllText(path));
+                        Console.WriteLine(zahl1);
+                    }
+                    
+                    
+                        zahl1 = Convert.ToDouble(Console.ReadLine());
+                    
+
+
+                    while (middle)
+                    {
+                        while (true)
+                        {
+                            Console.Write("Gib den Operator ein: ");
+                            op = Console.ReadLine();
+
+                            string[] opArray = { "+", "-", "*", "/", "p", "w" };
+
+                            if (!opArray.Contains(op))
+                            {
+                                Console.WriteLine("Fehlerhafte Eingabe");
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        Console.Write("Gib eine zweite Zahlt ein: ");
+                        
+                        if(Console.ReadKey(intercept: true).Key == ConsoleKey.S)
+                        {
+                            zahl2 = Convert.ToDouble(File.ReadAllText (path));
+                            Console.WriteLine (zahl2);
+                        }
+                        else
+                        {
+                            zahl2 = Convert.ToDouble(Console.ReadLine());
+                        }
+
+                        result = BerechneOperation(zahl1, zahl2, op);
+                        Console.WriteLine(result);
+
+                        bool conCalc = true;
+                        do
+                        {
+                            Console.Write("Mit Ergebnis weiterrechnen? [y/n/s/nn]: ");
+                            string antwort = Console.ReadLine();
+
+                            if (antwort == "y")
+                            {
+                                middle = true;
+                                conCalc = false;
+                                zahl1 = result;
+                            }
+                            else if (antwort == "n")
+                            {
+                                conCalc = false;
+                                middle = false;
+                                Console.Clear();
+                            }
+                            else if (antwort == "nn")
+                            {
+                                return result;
+                            }
+                            else if (antwort == "s")
+                            {
+                                File.WriteAllText(path, result.ToString());
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ungültige Eingabe");
+                                conCalc = true;
+                            }
+                        }
+                        while (conCalc);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Fehlerhafte Eingabe!");
+                    Console.WriteLine(ex.ToString());
+                }
+                
+            }
+            
         }
     }
 }
