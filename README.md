@@ -53,11 +53,17 @@ Heute habe ich die Berrechnung für den Zylinder und den Kreis fertig gestellt. 
 
 Heute habe ich die Berrechnung des Zylinders in den Taschenrecher eingebaut. Dazu habe ich mal Klassen und Objekte verwendet, um das auch mal zu üben. Ausserdem habe ich die Struktur des Taschenrechners verändert. Jetzt kann man am Anfang eingeben, ob man den Taschenrechner, die Mitternachtsformel, Annäherung von PI oder die Berrechnung des Zylinders. Dazu habe ich noch ein paar Schleifen angepasst, dass es bei falscher Eingabe den richtigen Teil wiederholt. Ich habe auch noch programmiert, dass man Resultate speichern kann und wenn man s drückt, wird die gespeicherte Zahl eingefügt. Zum Schluss habe ich noch mit Console.Clear den Umgang mit dem Rechner Angenehmer gemacht.
 
+## 6.12
 - [ ] Die Restlichen Schleifen auf Fehler kontrollieren
 - [ ] Bei allen Funktionen noch Console.Clear hinzufügen
 - [ ] Bei der Einsetzung der gespeicherten Zahl verbessern, dass auch die erste Zahl angezeigt wird.
 
+Heute habe ich nicht viel an meinem Projekt weiter gearbeitet, sondern hauptsächlich am Advent of Code. Ich finde, das ist eine sehr coole Idee und macht auch ziehmlich spass. Es ist aber nicht sehr einfach und ich habe ziemlich lange gebraucht, um das erste rätsel zu lösen. Ich musste einige Dinge nachschauen und es hat lange Zeit nicht funktioniert, da es in diesen Spalten jede 3. Zahl genommen hat und nicht jede 2. so wie ich es wollte. Für Tag 1 habe ich 2 goldene Sterne bekommen. Am Schluss habe ich noch an Tag 2 begonnen, bin aber noch nicht weit gekommen.
 
+## 13.12
+- [ ] Die Restlichen Schleifen auf Fehler kontrollieren
+- [ ] Bei allen Funktionen noch Console.Clear hinzufügen
+- [ ] Bei der Einsetzung der gespeicherten Zahl verbessern, dass auch die erste Zahl angezeigt wird.
 
 
 
