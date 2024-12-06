@@ -13,7 +13,8 @@ namespace Taschenrechner
             double result = 0;
             double x2 = 0;
             string op = "";
-            bool calculate = true;           
+            bool calculate = true;
+            
 
             while (calculate)
             {
@@ -179,13 +180,14 @@ namespace Taschenrechner
             }
             resultPi = Pi;
             
-            return resultPi;
-            
+            return resultPi;           
 
         }
 
         static double Calculator(double zahl1, double zahl2, double result, string op)
         {
+            string[] numberSaves;
+
             string path = @"C:\Users\joshu\source\repos\LA_Lernperiode-2\Taschenrechner\Number_Save.txt";
             while (true)
             {
@@ -194,18 +196,28 @@ namespace Taschenrechner
                 {
                     Console.Write("Gib eine Zahl ein: ");
 
-                    
+
 
                     if (Console.ReadKey(intercept: true).Key == ConsoleKey.S)
                     {
-                        zahl1 = Convert.ToDouble(File.ReadAllText(path));
-                        Console.WriteLine(zahl1);
-                    }
-                    
-                    
-                        zahl1 = Convert.ToDouble(Console.ReadLine());
-                    
+                        numberSaves = File.ReadAllLines(path);
 
+                        Console.Clear();
+
+                        for (int i = 0; i < numberSaves.Length; i++)
+                        {                            
+                            Console.WriteLine($"{i+1}: {numberSaves[i]}");
+                        }
+                        // Funktion für Speicheraufruf
+
+
+                        //zahl1 = Convert.ToDouble(File.ReadAllText(path));
+                        //Console.WriteLine(zahl1);
+                    }
+                    else
+                    {
+                        zahl1 = Convert.ToDouble(Console.ReadLine());
+                    }
 
                     while (middle)
                     {
@@ -260,6 +272,7 @@ namespace Taschenrechner
                             }
                             else if (antwort == "nn")
                             {
+                                Console.Clear ();
                                 return result;
                             }
                             else if (antwort == "s")
@@ -284,6 +297,11 @@ namespace Taschenrechner
                 
             }
             
+            
+        }
+        static void SavedNumbers()
+        {
+
         }
     }
 }
