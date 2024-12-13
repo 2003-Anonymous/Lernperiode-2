@@ -65,6 +65,12 @@ Heute habe ich nicht viel an meinem Projekt weiter gearbeitet, sondern hauptsäc
 - [ ] Bei allen Funktionen noch Console.Clear hinzufügen
 - [ ] Bei der Einsetzung der gespeicherten Zahl verbessern, dass auch die erste Zahl angezeigt wird.
 
+Heute habe ich am 13. Tag von Advent of Code gearbeitet. Dort habe ich eine Textdatei eingelesen und die Zahlen herausgefiltert. Dann habe ich noch in meinem Taschenrechner eingefügt, dass wenn man einen gespeicherten Wert einfügen will, kann man einen Wert aussuchen. 
+
+## 20.12
+- [ ] Hinzufügen, dass man bei der 2. Zahl auch einen gespeicherten Wert aussuchen kann.
+- [ ] Hinzufügen, dass man, wenn man einen Wert speichert, aussuchen kann, wo er gespeichert wird, also welche Stelle
+
 
 
 
