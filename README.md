@@ -79,7 +79,9 @@ Ich habe einen Taschenrechner programmiert, mit dem man plus, minus, geteilt, ma
 
 https://github.com/user-attachments/assets/14c74f78-1f66-41f1-84fc-c98a1ea99e32
 
+# Reflexion
 
+Ich finde, mir ist dieses Projekt sehr gut gelungen. Das meise habe ich auch selbst geschaft. Ich habe nur bei der Auswahlliste der gespeicherten Werte Hilfe gebraucht. Das Projekt hat viel Spass gemacht und ich habe viel gelert, vorallem über Mathematik und wie man die Klasse Math verwendet. Ich konnte auch das bearbeiten von Textdateien, Switch-Case und das erstellen einer Auswahlliste lernen. Dazu konnte ich mich noch mit Objekten auseinander setzten. 
 
 
 
