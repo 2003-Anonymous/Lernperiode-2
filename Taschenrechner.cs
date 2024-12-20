@@ -4,12 +4,12 @@ using System.Reflection;
 
 namespace Taschenrechner
 {
-    internal class Taschenrechner
+    internal class Calculator
     {
         static void Main(string[] args)
         {
-            double zahl1 = 0;
-            double zahl2 = 0;
+            double number1 = 0;
+            double number2 = 0;
             double result = 0;
             double x2 = 0;
             string op = "";
@@ -27,7 +27,7 @@ namespace Taschenrechner
 
                 if(firstDecision == "T")
                 {
-                    result = Calculator(zahl1, zahl2, result, op);
+                    result = CalculatorFunction(number1, number2, result, op);
                 }
                 else if(firstDecision == "G")
                 {
@@ -36,7 +36,7 @@ namespace Taschenrechner
                 }
                 else if(firstDecision == "P")
                 {
-                    result = AnnäherungPi(zahl1);
+                    result = ApproachPi(number1);
                     Console.WriteLine(result);
                     if (Console.ReadKey().Key == ConsoleKey.Enter)
                     {
@@ -47,7 +47,7 @@ namespace Taschenrechner
                 {
                     double[] nightresult;
 
-                    nightresult = MitternachtsFormel(result, x2);
+                    nightresult = MidnightFormula(result, x2);
                     Console.WriteLine($"x1 = {nightresult[0]}");
                     Console.WriteLine($"x2 = {nightresult[1]}");
                 }
@@ -55,43 +55,43 @@ namespace Taschenrechner
         }
 
 
-        static double BerechneOperation(double zahl1, double zahl2, string op)
+        static double CalculateOperation(double number1, double number2, string op)
         {
             double result = 0;
 
             if (op == "+")
             {
-                result = zahl1 + zahl2;
+                result = number1 + number2;
 
                 return result;
             }
             else if (op == "-")
             {
-                result = zahl1 - zahl2;
+                result = number1 - number2;
 
                 return result;
             }
             else if (op == "*")
             {
-                result = zahl1 * zahl2;
+                result = number1 * number2;
 
                 return result;
             }
             else if (op == "/")
             {
-                result = zahl1 / zahl2;
+                result = number1 / number2;
 
                 return result;
             }
             else if (op == "p")
             {
-                result = (long)Math.Pow(zahl1, zahl2);
+                result = (long)Math.Pow(number1, number2);
 
                 return result;
             }
             else if (op == "w")
             {
-                result = Math.Pow(zahl2, 1/zahl1);
+                result = Math.Pow(number2, 1/number1);
                 return result;
             }
             else
@@ -101,7 +101,7 @@ namespace Taschenrechner
                 return 0;
             }
         }
-        static double[] MitternachtsFormel(double x1, double x2)
+        static double[] MidnightFormula(double x1, double x2)
         {
             double a = 0;
             double b = 0;
@@ -123,13 +123,13 @@ namespace Taschenrechner
 
             double[] resultArray = { x1, x2 };
 
-            //showArray(resultArray);
+            
 
             return resultArray;
         }
 
         
-        static double AnnäherungPi(double resultPi)
+        static double ApproachPi(double resultPi)
         {
             int vorzeichen = 1;
             double Pi = 0;
@@ -184,7 +184,7 @@ namespace Taschenrechner
 
         }
 
-        static double Calculator(double zahl1, double zahl2, double result, string op)
+        static double CalculatorFunction(double number1, double number2, double result, string op)
         {
             string[] numberSaves;
 
@@ -197,28 +197,22 @@ namespace Taschenrechner
                     Console.Write("Gib eine Zahl ein: ");
 
 
-
                     if (Console.ReadKey(intercept: true).Key == ConsoleKey.S)
                     {
                         numberSaves = File.ReadAllLines(path);
 
+                        int[] selectedIndex = SavedNumbers(numberSaves, path);
                         Console.Clear();
-
-                        for (int i = 0; i < numberSaves.Length; i++)
-                        {                            
-                            Console.WriteLine($"{i+1}: {numberSaves[i]}");
-                        }
-                        // Funktion für Speicheraufruf
-
-
-                        //zahl1 = Convert.ToDouble(File.ReadAllText(path));
-                        //Console.WriteLine(zahl1);
-                    }
+                        number1 = Convert.ToInt32(numberSaves[selectedIndex[0]]);
+                        Console.WriteLine(number1);
+                        
+                    }                
                     else
                     {
-                        zahl1 = Convert.ToDouble(Console.ReadLine());
+                        number1 = Convert.ToDouble(Console.ReadLine());
                     }
-
+                    Console.Clear();
+                    Console.WriteLine(number1);
                     while (middle)
                     {
                         while (true)
@@ -237,19 +231,27 @@ namespace Taschenrechner
                                 break;
                             }
                         }
+                        Console.Clear();
+                        Console.WriteLine(number1);
+                        Console.WriteLine(op);
                         Console.Write("Gib eine zweite Zahlt ein: ");
                         
                         if(Console.ReadKey(intercept: true).Key == ConsoleKey.S)
                         {
-                            zahl2 = Convert.ToDouble(File.ReadAllText (path));
-                            Console.WriteLine (zahl2);
+                            number2 = Convert.ToDouble(File.ReadAllText (path));
+                            Console.WriteLine (number2);
                         }
                         else
                         {
-                            zahl2 = Convert.ToDouble(Console.ReadLine());
+                            number2 = Convert.ToDouble(Console.ReadLine());
                         }
 
-                        result = BerechneOperation(zahl1, zahl2, op);
+                        result = CalculateOperation(number1, number2, op);
+                        Console.Clear();
+                        Console.WriteLine(number1);
+                        Console.WriteLine(op);
+                        Console.WriteLine(number2);
+                        Console.WriteLine("-----------");
                         Console.WriteLine(result);
 
                         bool conCalc = true;
@@ -262,7 +264,7 @@ namespace Taschenrechner
                             {
                                 middle = true;
                                 conCalc = false;
-                                zahl1 = result;
+                                number1 = result;
                             }
                             else if (antwort == "n")
                             {
@@ -277,7 +279,55 @@ namespace Taschenrechner
                             }
                             else if (antwort == "s")
                             {
-                                File.WriteAllText(path, result.ToString());
+                                numberSaves = File.ReadAllLines(path);
+
+                                
+                                int selectedIndex = 0;
+
+                                
+                                while (true)
+                                {
+                                    Console.Clear();
+
+                                    
+                                    for (int i = 0; i < numberSaves.Length; i++)
+                                    {
+                                        if (i == selectedIndex)
+                                        {
+                                            Console.BackgroundColor = ConsoleColor.DarkGray;
+                                            Console.ForegroundColor = ConsoleColor.White;
+                                            Console.WriteLine(numberSaves[i]);
+                                            Console.ResetColor();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(numberSaves[i]);
+                                        }
+                                    }
+
+                                    
+
+                                    
+                                    var key = Console.ReadKey(true).Key;
+
+                                    if (key == ConsoleKey.UpArrow)
+                                    {
+                                        selectedIndex = (selectedIndex == 0) ? numberSaves.Length - 1 : selectedIndex - 1;
+                                    }
+                                    else if (key == ConsoleKey.DownArrow)
+                                    {
+                                        selectedIndex = (selectedIndex == numberSaves.Length - 1) ? 0 : selectedIndex + 1;
+                                    }
+                                    else if (key == ConsoleKey.Enter)
+                                    {
+                                        
+                                        numberSaves[selectedIndex] = result.ToString();
+                                        File.WriteAllLines(path, numberSaves);                                        
+                                        Console.ReadKey();
+                                        break;
+                                    }                                    
+                                }
+                            
                             }
                             else
                             {
@@ -286,7 +336,6 @@ namespace Taschenrechner
                             }
                         }
                         while (conCalc);
-
                     }
                 }
                 catch (Exception ex)
@@ -299,9 +348,59 @@ namespace Taschenrechner
             
             
         }
-        static void SavedNumbers()
+        static int[] SavedNumbers(string[] numberSaves, string path)
         {
+            int[] numberSavesPos = new int[2];
+            
 
+            Console.Clear();
+
+           
+            int selectedIndex = 0;
+
+            
+            while (true)
+            {
+                Console.Clear(); 
+
+                
+                for (int i = 0; i < numberSaves.Length; i++)
+                {
+                    if (i == selectedIndex)
+                    {
+                        
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine(numberSaves[i]);
+                        Console.ResetColor(); 
+                    }
+                    else
+                    {
+                        Console.WriteLine(numberSaves[i]);
+                    }
+                }
+
+                
+                var key = Console.ReadKey(true).Key;
+
+                
+                if (key == ConsoleKey.UpArrow)
+                {
+                    
+                    selectedIndex = (selectedIndex == 0) ? numberSaves.Length - 1 : selectedIndex - 1;
+                }
+                else if (key == ConsoleKey.DownArrow)
+                {
+                    
+                    selectedIndex = (selectedIndex == numberSaves.Length - 1) ? 0 : selectedIndex + 1;
+                }
+                else if (key == ConsoleKey.Enter)
+                {
+                    
+                    numberSavesPos[0] = selectedIndex;
+                    return numberSavesPos;
+                }
+            }
         }
     }
 }

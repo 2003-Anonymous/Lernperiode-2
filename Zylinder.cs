@@ -15,101 +15,101 @@ namespace Taschenrechner
 
         public void ZylinderOperation()
         {
-            double wert1 = 0;
-            double wert2 = 0;
-            string eingabeResult;
+            double value1 = 0;
+            double value2 = 0;
+            string enterResult;
             double result = 0;
-            bool enterResult = false;
+            bool resultentering = false;
             string path = @"C:\Users\joshu\source\repos\LA_Lernperiode-2\Taschenrechner\Number_Save.txt";
 
             do
             {
                 Console.WriteLine("Welchen Wert willst du errechnen? [r,d,v,h,A,U,Vk,b,As]");
                
-                eingabeResult = Console.ReadLine();
+                enterResult = Console.ReadLine();
 
                 Console.Clear();
 
-                switch (eingabeResult)
+                switch (enterResult)
                 {
                     case "r":
-                        ResultR(wert1, wert2, result);
+                        ResultR(value1, value2, result);
                         break;
                     case "d":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(wert1 * 2, 2);
+                        result = Math.Round(value1 * 2, 2);
                         Console.WriteLine($"d = {result}");
                         break;
                     case "v":
                         Console.Write($"h = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
                         Console.Write($"r = ");
-                        wert2 = Convert.ToDouble(Console.ReadLine());
+                        value2 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round((Math.PI * Math.Pow(wert1, 2)) * wert2, 2);
+                        result = Math.Round((Math.PI * Math.Pow(value1, 2)) * value2, 2);
                         Console.WriteLine($"v = {result}");
 
                         break;
                     case "h":
                         Console.Write($"v = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
                         Console.Write($"r = ");
-                        wert2 = Convert.ToDouble(Console.ReadLine());
+                        value2 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(wert1 / (Math.PI * Math.Pow(wert2, 2)), 2);
+                        result = Math.Round(value1 / (Math.PI * Math.Pow(value2, 2)), 2);
                         Console.WriteLine($"h = {result}");
                         break;
                     case "A":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(Math.PI * Math.Pow(wert1, 2), 2);
+                        result = Math.Round(Math.PI * Math.Pow(value1, 2), 2);
                         Console.WriteLine($"A = {result}");
                         break;
                     case "U":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(2 * Math.PI * wert1, 2);
+                        result = Math.Round(2 * Math.PI * value1, 2);
                         Console.WriteLine($"A = {result}");
                         break;
                     case "Vk":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round((4 / 3) * Math.PI * Math.Pow(wert1, 3), 2);
+                        result = Math.Round((4 / 3) * Math.PI * Math.Pow(value1, 3), 2);
                         Console.WriteLine($"VK = {result}");
                         break;
                     case "b":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
                         Console.Write("Winkel = ");
-                        wert2 = Convert.ToDouble(Console.ReadLine());
+                        value2 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(2 * Math.PI * wert1 * (wert2 / 360), 2);
+                        result = Math.Round(2 * Math.PI * value1 * (value2 / 360), 2);
                         Console.WriteLine($"b = {result}");
                         break;
                     case "As":
                         Console.Write($"r = ");
-                        wert1 = Convert.ToDouble(Console.ReadLine());
+                        value1 = Convert.ToDouble(Console.ReadLine());
 
                         Console.Write("Winkel = ");
-                        wert2 = Convert.ToDouble(Console.ReadLine());
+                        value2 = Convert.ToDouble(Console.ReadLine());
 
-                        result = Math.Round(Math.PI * Math.Pow(wert1, 2) * (wert2 / 360), 2);
+                        result = Math.Round(Math.PI * Math.Pow(value1, 2) * (value2 / 360), 2);
                         Console.WriteLine($"A = {result}");
                         break;
                     default:
                         Console.WriteLine("Ungültige Eigabe!");
-                        enterResult = true;
+                        resultentering = true;
                         break;
                 }
-            } while (enterResult);
+            } while (resultentering);
 
             Console.WriteLine("Willst du das Resultat speichern?[y/n] ");
             if (Console.ReadLine() == "y")
