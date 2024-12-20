@@ -238,8 +238,12 @@ namespace Taschenrechner
                         
                         if(Console.ReadKey(intercept: true).Key == ConsoleKey.S)
                         {
-                            number2 = Convert.ToDouble(File.ReadAllText (path));
-                            Console.WriteLine (number2);
+                            numberSaves = File.ReadAllLines(path);
+
+                            int[] selectedIndex = SavedNumbers(numberSaves, path);
+                            Console.Clear();
+                            number2 = Convert.ToInt32(numberSaves[selectedIndex[0]]);
+                            Console.WriteLine(number2);
                         }
                         else
                         {
