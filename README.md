@@ -68,9 +68,12 @@ Heute habe ich nicht viel an meinem Projekt weiter gearbeitet, sondern hauptsäc
 Heute habe ich am 13. Tag von Advent of Code gearbeitet. Dort habe ich eine Textdatei eingelesen und die Zahlen herausgefiltert. Dann habe ich noch in meinem Taschenrechner eingefügt, dass wenn man einen gespeicherten Wert einfügen will, kann man einen Wert aussuchen. 
 
 ## 20.12
-- [ ] Hinzufügen, dass man bei der 2. Zahl auch einen gespeicherten Wert aussuchen kann.
-- [ ] Hinzufügen, dass man, wenn man einen Wert speichert, aussuchen kann, wo er gespeichert wird, also welche Stelle
+- [x] Hinzufügen, dass man bei der 2. Zahl auch einen gespeicherten Wert aussuchen kann.
+- [x] Hinzufügen, dass man, wenn man einen Wert speichert, aussuchen kann, wo er gespeichert wird, also welche Stelle
 
+Zu meinen beiden Aufgaben habe ich noch hinzugefügt, dass wenn man eine Zahl eingibt, die Konsole geleert wird und nur noch die Zahlen stehen, also ohne "Geben sie eine Zahl ein: ". Dazu habe ich noch alle Variablen auf Englisch umbenannt und die Auswahl aus den gespeicherten Werten in eine Funktion ausgelagert.
+
+# Beschreibung Projekt
 
 
 
