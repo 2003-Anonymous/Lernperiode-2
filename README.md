@@ -77,7 +77,7 @@ Zu meinen beiden Aufgaben habe ich noch hinzugefügt, dass wenn man eine Zahl ei
 
 Ich habe einen Taschenrechner programmiert, mit dem man plus, minus, geteilt, mal, beliebige Wurzel, beliebige Potenz berrechnen kann. Ausserdem kann man das Resultat in einer Liste speichern und auch wieder aufrufen. Um gespeicherte Werte aufzurufen, muss man "s" drücken. Dann geht eine Liste auf, wo man mit den Pfeiltasten einen Wert aussuchen kann. Man kann auch mit dem letzten Wert weiterrechnen. Dazu kann man alle beliebigen Werte eines Zylinders, Kreises und einer Kugel berrechnen. Ich habe auch eine Annäherung an Pi programmiert, die Pi sehr langsam berrechnet. Zum Schluss habe ich noch die Mitternachtsformel hinzugefügt, welche aber meistens nicht funktioniert, ich keine imaginären Zahlen programmiert habe.
 
-"C:\Users\joshu\Videos\Bildschirmaufzeichnungen\Bildschirmaufnahme 2024-12-20 100621.mp4"
+https://github.com/user-attachments/assets/14c74f78-1f66-41f1-84fc-c98a1ea99e32
 
 
 
